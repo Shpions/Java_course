@@ -1,16 +1,21 @@
 import java.util.Arrays;
 
-public class Main {
+public class Main extends RandomArrayGenerator {
 
     public static void main(String[] args) {
-        outerArrays();
-        innerJoin();
-        outerJoin();
+        get(arrayOne,"Array one is: ");
+        get(arrayTwo,"Array two is: ");
+        mergeArrays(arrayOne,arrayTwo);
+        innerJoin(arrayOne,arrayTwo);
+        outerJoin(arrayOne,arrayTwo);
+    }
+
+    //
+    public static void get(int []a,String b){
+        System.out.println(b + Arrays.toString(a));
     }
     //---------------Merge without duplicates
-    private static void outerArrays() {
-        int[] arrayOne = {1, 5, 4, 23, 65, 32, 78};
-        int[] arrayTwo = {3, 5, 24, 54, 1, 2, 34, 45, 32};
+    private static void mergeArrays(int[] arrayOne, int []arrayTwo) {
         int count = 0;
 
         for (int i = 0; i < arrayOne.length; i++) {
@@ -18,7 +23,7 @@ public class Main {
                 if (arrayOne[i] == arrayTwo[j]) count++;
             }
         }
-
+//------remove count and fix logic for indexes out of array length
         int resultArrayLength = arrayOne.length + arrayTwo.length - count;
         int[] result = new int[resultArrayLength];
 
@@ -30,9 +35,9 @@ public class Main {
 
         for (int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
             for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
-                if(arrayTwo[elementOfArrayTwo]!=arrayOne[elementOfArrayOne]){
-                    if(elementOfArrayOne + 1 == arrayOne.length){
-                        result[elementOfArrayResult]=arrayTwo[elementOfArrayTwo];
+                if(arrayTwo[elementOfArrayTwo]!= arrayOne[elementOfArrayOne]){
+                    if(elementOfArrayOne + 1 == arrayOne.length && elementOfArrayResult < result.length){
+                        result[elementOfArrayResult] = arrayTwo[elementOfArrayTwo];
                         elementOfArrayResult++;
                         break;
                     }
@@ -40,16 +45,11 @@ public class Main {
                 else break;
             }
         }
-        System.out.println("Array one is: " + Arrays.toString(arrayOne));
-        System.out.println("Array two is: " + Arrays.toString(arrayTwo));
-        System.out.print("Merge without duplicates: ");
-        System.out.println(Arrays.toString(result));
+        get(result,"Merge without duplicates: ");
     }
 
    //-------------------Inner Join
-    private static void innerJoin(){
-        int arrayOne[] ={1,5,4,23,65,32,78};
-        int arrayTwo[] ={3,5,24,4,1,2,34,45,32,5};
+    private static void innerJoin(int[] arrayOne, int []arrayTwo){
 
     //find count of common element
         int countCommonElement = 0;
@@ -76,25 +76,19 @@ public class Main {
               }
           }
         }
-        System.out.println("\nArray one is: " + Arrays.toString(arrayOne));
-        System.out.println("Array two is: " + Arrays.toString(arrayTwo));
-        System.out.print("Inner join: ");
-        System.out.println(Arrays.toString(result));
+        get(result,"Inner join: ");
     }
 
     //-----------------Outer join
-    public static void outerJoin(){
-        int[] arrayOne = {1,5,4,23,65,32,78};
-        int[] arrayTwo = {3,5,24,4,1,2,34,45,32,5};
-        int[] arrayExpected = {23,65,78,3,24,2,34,45};
-        int[] result = new int[arrayOne.length + arrayTwo.length];
+    public static void outerJoin(int[] arrayOne, int []arrayTwo){
+        int[] resultOld = new int[arrayOne.length + arrayTwo.length];
         int elementOfResult = 0;
         //fill array by unique value from arrayOne
         for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++) {
             for ( int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                 if(arrayOne[elementOfArrayOne] != arrayTwo[elementOfArrayTwo]){
                     if((elementOfArrayTwo + 1) == arrayTwo.length){
-                        result[elementOfResult] = arrayOne[elementOfArrayOne];
+                        resultOld[elementOfResult] = arrayOne[elementOfArrayOne];
                         elementOfResult++;
                     }
                 }
@@ -106,7 +100,7 @@ public class Main {
             for ( int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
                 if(arrayOne[elementOfArrayOne] != arrayTwo[elementOfArrayTwo]){
                     if((elementOfArrayOne + 1) == arrayOne.length){
-                        result[elementOfResult] = arrayTwo[elementOfArrayTwo];
+                        resultOld[elementOfResult] = arrayTwo[elementOfArrayTwo];
                         elementOfResult++;
                     }
                 }
@@ -114,13 +108,10 @@ public class Main {
             }
         }
         //create and fill array by unique value from array result
-        int[] resultFinal = new int[elementOfResult];
-        for (int elementOfResultFinal = 0; elementOfResultFinal < resultFinal.length; elementOfResultFinal++){
-            resultFinal[elementOfResultFinal] = result[elementOfResultFinal];
+        int[] result = new int[elementOfResult];
+        for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
+            result[elementOfResultFinal] = resultOld[elementOfResultFinal];
         }
-        System.out.println("\nArray one is: " + Arrays.toString(arrayOne));
-        System.out.println("Array two is: " + Arrays.toString(arrayTwo));
-        System.out.print("Outer join: ");
-        System.out.println(Arrays.toString(resultFinal));
+        get(result,"Outer join: ");
     }
 }
