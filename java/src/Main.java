@@ -11,8 +11,8 @@ public class Main extends RandomArrayGenerator {
     }
 
     //
-    public static void get(int []a,String b){
-        System.out.println(b + Arrays.toString(a));
+    public static void get(int []array,String b){
+        System.out.println(b + Arrays.toString(array));
     }
     //---------------Merge without duplicates
     private static void mergeArrays(int[] arrayOne, int []arrayTwo) {
@@ -24,11 +24,11 @@ public class Main extends RandomArrayGenerator {
             }
         }
 //------remove count and fix logic for indexes out of array length
-        int resultArrayLength = arrayOne.length + arrayTwo.length - count;
-        int[] result = new int[resultArrayLength];
+        int resultArrayLength = arrayOne.length + arrayTwo.length;
+        int[] resultOld = new int[resultArrayLength];
 
         for (int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++) {
-            result[elementOfArrayOne] = arrayOne[elementOfArrayOne];
+            resultOld[elementOfArrayOne] = arrayOne[elementOfArrayOne];
         }
 
         int elementOfArrayResult = arrayOne.length;;
@@ -36,8 +36,8 @@ public class Main extends RandomArrayGenerator {
         for (int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
             for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
                 if(arrayTwo[elementOfArrayTwo]!= arrayOne[elementOfArrayOne]){
-                    if(elementOfArrayOne + 1 == arrayOne.length && elementOfArrayResult < result.length){
-                        result[elementOfArrayResult] = arrayTwo[elementOfArrayTwo];
+                    if(elementOfArrayOne + 1 == arrayOne.length && elementOfArrayResult < resultOld.length){
+                        resultOld[elementOfArrayResult] = arrayTwo[elementOfArrayTwo];
                         elementOfArrayResult++;
                         break;
                     }
@@ -45,7 +45,13 @@ public class Main extends RandomArrayGenerator {
                 else break;
             }
         }
-        get(result,"Merge without duplicates: ");
+        //create and fill array by unique value from array resultOld
+        int[] result = new int[elementOfArrayResult];
+        for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
+            result[elementOfResultFinal] = resultOld[elementOfResultFinal];
+        }
+
+        get(resultOld,"Merge without duplicates: ");
     }
 
    //-------------------Inner Join
@@ -107,7 +113,7 @@ public class Main extends RandomArrayGenerator {
                 else break;
             }
         }
-        //create and fill array by unique value from array result
+        //create and fill array by unique value from array resultOld
         int[] result = new int[elementOfResult];
         for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
             result[elementOfResultFinal] = resultOld[elementOfResultFinal];

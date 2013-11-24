@@ -8,7 +8,10 @@ public class RandomArrayGenerator {
 
         int[] arrayOne;
         Random rand = new Random();
-        int randomNumber = rand.nextInt(20);
+        int randomNumber = 0;
+            while (randomNumber == 0){
+                randomNumber = rand.nextInt(20);
+            }
         arrayOne = new int[randomNumber];
         for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
             int randomNumberForArrayOne = rand.nextInt(20) - 10;
@@ -21,7 +24,10 @@ public class RandomArrayGenerator {
 
         int[] arrayTwo;
         Random rand = new Random();
-        int randomNumber = rand.nextInt(20);
+        int randomNumber = 0;
+            while (randomNumber == 0){
+                randomNumber = rand.nextInt(20);
+            }
         arrayTwo = new int[randomNumber];
         for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
             Random random = new Random();

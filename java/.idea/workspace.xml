@@ -4,12 +4,12 @@
     <list default="true" id="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" name="Default" comment="" />
     <ignored path="untitled2.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385326327990" ignored="false" />
+    <file path="/Main.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385328327656" ignored="false" />
     <file path="/fragment.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385305488098" ignored="false" />
     <file path="$PROJECT_DIR$/../less3/.idea/workspace.xml" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385218844213" ignored="false" />
     <file path="$PROJECT_DIR$/../arraysLess/src/arrayMain.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385021376691" ignored="false" />
     <file path="/arrayMain.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385021376691" ignored="false" />
-    <file path="/RandomArrayGenerator.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385324184422" ignored="false" />
+    <file path="/RandomArrayGenerator.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385328640574" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/untitled2/src/Main.java" changelist="586f6b8a-b3e5-42ee-89e6-0d6a6b4a9417" time="1385317789487" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,19 +76,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="66" selection-start="830" selection-end="830" vertical-scroll-proportion="0.4639738">
+            <state line="32" column="93" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RandomArrayGenerator.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RandomArrayGenerator.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RandomArrayGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="46" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+            <state line="29" column="47" selection-start="958" selection-end="958" vertical-scroll-proportion="0.5382096">
               <folding />
             </state>
           </provider>
@@ -105,8 +105,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/test/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/RandomArrayGenerator.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/RandomArrayGenerator.java" />
       </list>
     </option>
   </component>
@@ -391,16 +391,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RandomArrayGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="46" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+        <state line="32" column="93" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/RandomArrayGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="66" selection-start="830" selection-end="830" vertical-scroll-proportion="0.4639738">
+        <state line="29" column="47" selection-start="958" selection-end="958" vertical-scroll-proportion="0.5382096">
           <folding />
         </state>
       </provider>
