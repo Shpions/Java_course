@@ -3,19 +3,57 @@ import java.util.Arrays;
 public class Main extends RandomArrayGenerator {
 
     public static void main(String[] args) {
+       /*
         get(arrayOne,"Array one is: ");
         get(arrayTwo,"Array two is: ");
         mergeArrays(arrayOne,arrayTwo);
         innerJoin(arrayOne,arrayTwo);
         outerJoin(arrayOne,arrayTwo);
+        rightJoin(arrayOne,arrayTwo);
+        */
+    Country[] arrayOne = {new Country.Builder().code("FR").description("France").build(),
+            new Country.Builder().code("US").description("USA").build(),
+            new Country.Builder().code("RUS").description("Russia").build()};
+
+    Country[] arrayTwo = {new Country.Builder().code("It").description("Italy").build(),
+            new Country.Builder().code("CA").description("Canada").build(),
+            new Country.Builder().code("GR").description("Germany").build()};
+
+    //merge(arrayOne,arrayTwo);
+        System.out.println(merge(arrayOne,arrayTwo).toString());
+
+
+    Country country = new Country.Builder().code("UA").build();
+    Country country2 = new Country.Builder().code("FR").description("France").build();
+    Country countryCopy = new Country.Builder(country2).description("new").build();
+    System.out.println(country.toString());
+    System.out.println(country2.toString());
+    System.out.println(countryCopy.toString());
     }
 
-    //
+    //---------get method
     public static void get(int []array,String b){
         System.out.println(b + Arrays.toString(array));
     }
-    //---------------Merge without duplicates
-    private static void mergeArrays(int[] arrayOne, int []arrayTwo) {
+
+
+    public static Country[] merge(Country[] arrayOne, Country[] arrayTwo){
+       int countryLength = arrayOne.length + arrayTwo.length;
+       Country[] result = new Country[countryLength];
+       int count = arrayOne.length;
+       for(int i = 0; i < arrayOne.length; i++) {
+           result[i] = arrayOne[i];
+       }
+       for(int i = 0; i < arrayTwo.length; i++){
+           result[count] = arrayTwo[i];
+           count++;
+       }
+
+       return result;
+    }
+
+    //---------------left join
+    private static int[] mergeArrays(int[] arrayOne, int []arrayTwo) {
         int count = 0;
 
         for (int i = 0; i < arrayOne.length; i++) {
@@ -50,8 +88,9 @@ public class Main extends RandomArrayGenerator {
         for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
             result[elementOfResultFinal] = resultOld[elementOfResultFinal];
         }
+        get(result,"Merge without duplicates: ");
+        return result;
 
-        get(resultOld,"Merge without duplicates: ");
     }
 
    //-------------------Inner Join
@@ -120,4 +159,49 @@ public class Main extends RandomArrayGenerator {
         }
         get(result,"Outer join: ");
     }
+
+
+    //-------------------Right Join
+    private static void rightJoin(int[] arrayOne, int []arrayTwo){
+
+        //find count of common element
+        int countCommonElement = 0;
+        for (int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+            for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
+                if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
+                    countCommonElement++;
+                    break;
+                }
+                else continue;
+            }
+        }
+        //initialize and create array of common element
+        int[] result = new int[countCommonElement];
+        for (int elementOfArrayResult = 0; elementOfArrayResult < result.length; elementOfArrayResult++){
+            for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+                for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
+                    if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
+                        result[elementOfArrayResult] = arrayOne[elementOfArrayOne];
+                        elementOfArrayResult++;
+                        break;
+                    }
+                    else continue;
+                }
+            }
+        }
+
+        int[] merge = new int[result.length + arrayTwo.length];
+        for(int elementsOfMerge = 0; elementsOfMerge < merge.length; elementsOfMerge++){
+            for(int elementOfResult = 0; elementOfResult < result.length; elementOfResult++){
+                merge[elementsOfMerge] = result[elementOfResult];
+                elementsOfMerge++;
+            }
+            for(int elementsOfArrayTwo = 0; elementsOfArrayTwo < arrayTwo.length; elementsOfArrayTwo++){
+                merge[elementsOfMerge] = arrayTwo[elementsOfArrayTwo];
+                elementsOfMerge++;
+            }
+        }
+         get(merge,"Right join: ");
+    }
+
 }
