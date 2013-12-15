@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+//local code review (vtegza): in most of cases main class should not extends other functionality @ 15.12.13
+
 public class Main extends RandomArrayGenerator {
 
     public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class Main extends RandomArrayGenerator {
         outerJoin(arrayOne,arrayTwo);
         rightJoin(arrayOne,arrayTwo);
         */
+        //local code review (vtegza): Country is not in VCS @ 15.12.13
     Country[] arrayOne = {new Country.Builder().code("FR").description("France").build(),
             new Country.Builder().code("US").description("USA").build(),
             new Country.Builder().code("RUS").description("Russia").build()};
@@ -32,6 +35,7 @@ public class Main extends RandomArrayGenerator {
     }
 
     //---------get method
+    //local code review (vtegza): get method should always return value @ 15.12.13
     public static void get(int []array,String b){
         System.out.println(b + Arrays.toString(array));
     }
@@ -56,6 +60,7 @@ public class Main extends RandomArrayGenerator {
     private static int[] mergeArrays(int[] arrayOne, int []arrayTwo) {
         int count = 0;
 
+        //local code review (vtegza): foreach @ 15.12.13
         for (int i = 0; i < arrayOne.length; i++) {
             for (int j = 0; j < arrayTwo.length; j++) {
                 if (arrayOne[i] == arrayTwo[j]) count++;
@@ -65,12 +70,13 @@ public class Main extends RandomArrayGenerator {
         int resultArrayLength = arrayOne.length + arrayTwo.length;
         int[] resultOld = new int[resultArrayLength];
 
+        //local code review (vtegza): use Array copy @ 15.12.13
         for (int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++) {
             resultOld[elementOfArrayOne] = arrayOne[elementOfArrayOne];
         }
 
         int elementOfArrayResult = arrayOne.length;;
-
+        //local code review (vtegza): foreach @ 15.12.13
         for (int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
             for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
                 if(arrayTwo[elementOfArrayTwo]!= arrayOne[elementOfArrayOne]){
@@ -85,6 +91,7 @@ public class Main extends RandomArrayGenerator {
         }
         //create and fill array by unique value from array resultOld
         int[] result = new int[elementOfArrayResult];
+        //local code review (vtegza): use array copy @ 15.12.13
         for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
             result[elementOfResultFinal] = resultOld[elementOfResultFinal];
         }
@@ -98,7 +105,9 @@ public class Main extends RandomArrayGenerator {
 
     //find count of common element
         int countCommonElement = 0;
+        //local code review (vtegza): foreach @ 15.12.13
         for (int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+            //local code review (vtegza): foreach @ 15.12.13
             for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                 if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
                     countCommonElement++;
@@ -110,13 +119,16 @@ public class Main extends RandomArrayGenerator {
     //initialize and create array of common element
         int[] result = new int[countCommonElement];
         for (int elementOfArrayResult = 0; elementOfArrayResult < result.length; elementOfArrayResult++){
+            //local code review (vtegza): foreach @ 15.12.13
           for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+              //local code review (vtegza): foreach @ 15.12.13
               for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                   if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
                       result[elementOfArrayResult] = arrayOne[elementOfArrayOne];
                       elementOfArrayResult++;
                       break;
                   }
+                  //local code review (vtegza): no need in continue here @ 15.12.13
                   else continue;
               }
           }
@@ -129,6 +141,7 @@ public class Main extends RandomArrayGenerator {
         int[] resultOld = new int[arrayOne.length + arrayTwo.length];
         int elementOfResult = 0;
         //fill array by unique value from arrayOne
+        //local code review (vtegza): foreach @ 15.12.13
         for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++) {
             for ( int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                 if(arrayOne[elementOfArrayOne] != arrayTwo[elementOfArrayTwo]){
@@ -141,6 +154,7 @@ public class Main extends RandomArrayGenerator {
             }
         }
         //fill array by unique value from arrayTwo
+        //local code review (vtegza): foreach @ 15.12.13
         for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++) {
             for ( int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
                 if(arrayOne[elementOfArrayOne] != arrayTwo[elementOfArrayTwo]){
@@ -154,6 +168,7 @@ public class Main extends RandomArrayGenerator {
         }
         //create and fill array by unique value from array resultOld
         int[] result = new int[elementOfResult];
+        //local code review (vtegza): use array copy @ 15.12.13
         for (int elementOfResultFinal = 0; elementOfResultFinal < result.length; elementOfResultFinal++){
             result[elementOfResultFinal] = resultOld[elementOfResultFinal];
         }
@@ -166,25 +181,31 @@ public class Main extends RandomArrayGenerator {
 
         //find count of common element
         int countCommonElement = 0;
+        //local code review (vtegza): foreach @ 15.12.13
         for (int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+            //local code review (vtegza): foreach @ 15.12.13
             for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                 if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
                     countCommonElement++;
                     break;
                 }
+                //local code review (vtegza): no need in continue here @ 15.12.13
                 else continue;
             }
         }
         //initialize and create array of common element
         int[] result = new int[countCommonElement];
         for (int elementOfArrayResult = 0; elementOfArrayResult < result.length; elementOfArrayResult++){
+            //local code review (vtegza): foreach @ 15.12.13
             for(int elementOfArrayOne = 0; elementOfArrayOne < arrayOne.length; elementOfArrayOne++){
+                //local code review (vtegza): foreach @ 15.12.13
                 for(int elementOfArrayTwo = 0; elementOfArrayTwo < arrayTwo.length; elementOfArrayTwo++){
                     if(arrayOne[elementOfArrayOne] == arrayTwo[elementOfArrayTwo]){
                         result[elementOfArrayResult] = arrayOne[elementOfArrayOne];
                         elementOfArrayResult++;
                         break;
                     }
+                    //local code review (vtegza): no need in continue here @ 15.12.13
                     else continue;
                 }
             }
@@ -192,10 +213,12 @@ public class Main extends RandomArrayGenerator {
 
         int[] merge = new int[result.length + arrayTwo.length];
         for(int elementsOfMerge = 0; elementsOfMerge < merge.length; elementsOfMerge++){
+            //local code review (vtegza): foreach @ 15.12.13
             for(int elementOfResult = 0; elementOfResult < result.length; elementOfResult++){
                 merge[elementsOfMerge] = result[elementOfResult];
                 elementsOfMerge++;
             }
+            //local code review (vtegza): foreach @ 15.12.13
             for(int elementsOfArrayTwo = 0; elementsOfArrayTwo < arrayTwo.length; elementsOfArrayTwo++){
                 merge[elementsOfMerge] = arrayTwo[elementsOfArrayTwo];
                 elementsOfMerge++;
